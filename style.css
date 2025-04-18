@@ -108,6 +108,11 @@ header {
   flex: 1;
 }
 
+.spacer2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 /* Name aligned to left */
 .site-name {
   font-size: 24px;
@@ -116,7 +121,7 @@ header {
 }
 
 /* Media query for screen width 800px and below */
-@media (max-width: 100px) {
+@media (max-width: 1100px) {
   .nav-buttons {
     display: none;
   }
@@ -147,13 +152,14 @@ main {
   flex: 1;
 }
 
+/* Parallax implementation*/
 .parallax {
   position: relative;
-  background-image: url('Images/geometricRain.jpg');
+  background-image: url('Images/geometricRain.jpg'); /* Pulls the image from Images folder */
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* enables the parallax effect */
-  height: 500px;
+  height: 750px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,10 +167,34 @@ main {
   color: white;
 }
 
+/*Design for the text in the box*/
 .parallax-text {
-  background-color: rgba(0, 0, 0, 0.5); /* dark transparent box */
+  background-color: #262626;
   padding: 20px 40px;
   border-radius: 10px;
+}
+
+/*Design for the actuall box that holds the Experience and Education Info*/
+.experienceContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 50px;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  font-size: 18px;
+}
+
+.experience p, ul {
+  font-size: 15px;
+}
+
+.experience ul {
+  padding-left: 25px;
 }
 
 /*
