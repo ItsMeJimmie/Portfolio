@@ -1,73 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jimmie Cox | Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Page Layout</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/> 
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
 </head>
-
 <body>
-  <!-- Floating Transparent Header -->
-  <div class="top-header">
-    <div class="container">
-      <h2>Jimmie Cox</h2>
-      <nav>
-        <a href="#about">Introduction</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!--This is the div for a container that helps with sizing functionality-->
+  <div class="page-container">
+    <!--This the header tage that will contain my name and buttons-->
+    <header>
+      <div class="header-content">
+        <!--My Name for the site-->
+        <h1 class="site-name">James (Jimmie) Cox</h1>
+        
+        <!--Thsi is for the navigation buttons-->
+        <nav class="nav-buttons">
+          <button>Home</button>
+          <button>Projects</button>
+          <button>Contact</button>
+        </nav>
+        <!--This is a spacer for the site-name and nav-buttons-->
+        <div class="spacer"></div>
+        <!--This is for creating the hamburger button-->
+        <div class="hamburger" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dropdown for hamburger button-->
+    <div class="mobile-menu" id="mobileMenu">
+      <button>Home</button>
+      <button>Projects</button>
+      <button>Contact</button>
     </div>
+
+    <main>
+      <!--This is to create a parallax image-->
+      <section class="parallax">
+        <div class="parallax-text">
+          <h1>Jimmie Cox</h1>
+          <p>Undergraduate Student At Wright State University</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 My Website</p>
+    </footer>
   </div>
-
-  <!-- Content -->
-  <main class="content">
-    <section id="Introduction">
-        <div>
-            <img src="" alt="Profile Picture">
-            <h2>Introduction</h2>
-            <p>Undergraduate Student at Wright State University</p>
-            <!--Contact Buttons-->
-        </div>
-        <div>
-            <h2>About Me</h2>
-            <p>I'm currently an undergraduate student</p>
-            <button>RESUME</button>
-            <div class="subsection">
-                <div class="interests">
-                <h2>Interests</h2>
-                    <ul>
-                        <li>Machine Learning</li>
-                        <li>Autonomous Vehicles</li>
-                        <li>Ultrawide Band</li>
-                    </ul>
-                </div>
-                <h2>Education</h2>
-                <p></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <img src="" alt="GCTC">
-      <h2>Generic Campus Tour Company Website (GCTC)</h2>
-      <img src="" alt="OCR Floor Plan">
-      <h2>Optical Character Recognition For Floor Plans</h2>
-      <img src="" alt="Image Segmentation">
-      <h2>Earth Terrain Image Segmentation</h2>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Jimmie Cox</p>
-  </footer>
   
-</body>
+  <script src="script.js"></script>
 
+</body>
 </html>

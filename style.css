@@ -1,98 +1,188 @@
-/* Base Reset */
+/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    font-family: 'Segoe UI', sans-serif;
-    scroll-behavior: smooth;
-  }
-  
-  /* Top Floating Header */
-  .top-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(17, 17, 17, 0.7); /* semi-transparent black */
-    color: white;
-    z-index: 999;
-    padding: 0.75rem 1rem;
-  }
-  
-  .top-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  .top-header h2 {
-    font-size: 1.2rem;
-  }
-  
-  .top-header nav a {
-    color: white;
-    margin-left: 1rem;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .top-header nav a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Main Content */
-  .content {
-    padding: 6rem 2rem 4rem 2rem;
-    background: #f9f9f9;
-  }
-  
-  .content section {
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-  }
-  
-  #Introduction {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    text-align: center;
-    background-color: grey;
-    border-radius: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/*
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+*/
+
+/* Wrapper to hold the structure */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Style */
+header {
+  background-color: #262626;
+  color: white;
+  padding: 20px;
+}
+
+/* Flexbox layout for header content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+}
+
+/* Buttons centered */
+.nav-buttons {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Navigation buttons */
+.nav-buttons button, 
+.mobile-menu button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #262626;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+/* Navigation button style when hovering over */
+.nav-buttons button:hover,
+.mobile-menu button:hover {
+  color: #F56E0F;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mobile dropdown menu (hidden by default) */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #262626;
+  text-align: center;
+  transition: max-height 1s ease;
+}
+
+/* Mobile dropdown button look */
+.mobile-menu button {
+  margin: 10px auto;
+  width: 100%;
+}
+
+/* When visible */
+.mobile-menu.show {
+  max-height: 500px; /* enough to fit your buttons */
+  opacity: 1;
+}
+
+/* Optional spacer if needed */
+.spacer {
+  flex: 1;
+}
+
+/* Name aligned to left */
+.site-name {
+  font-size: 24px;
+  margin: 0;
+  flex: 1;
+}
+
+/* Media query for screen width 800px and below */
+@media (max-width: 100px) {
+  .nav-buttons {
+    display: none;
   }
 
-  #Introduction :nth-child {
-    margin: 20px 20px;
+  .hamburger {
+    display: block;
   }
 
-  .subsection {
+  .mobile-menu.show {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
   }
+}
 
-  .intrests {
-    display: flex;
-    flex-direction: column;
-  }
-  
 
-  
-  /* Footer */
-  footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-  }
-  
-  footer a {
-    color: #66d9ef;
-    text-decoration: none;
-  }
-  
+/*
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+*/
+
+/* Main Content */
+main {
+  flex: 1;
+}
+
+.parallax {
+  position: relative;
+  background-image: url('Images/geometricRain.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* enables the parallax effect */
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.parallax-text {
+  background-color: rgba(0, 0, 0, 0.5); /* dark transparent box */
+  padding: 20px 40px;
+  border-radius: 10px;
+}
+
+/*
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+SPACING
+*/
+
+/* Footer Style */
+footer {
+  background-color: #262626;
+  color: #eee;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
