@@ -155,7 +155,7 @@ main {
 /* Parallax implementation*/
 .parallax {
   position: relative;
-  background-image: url('Images/geometricRain.jpg'); /* Pulls the image from Images folder */
+  background-image: url('Images/background.jpg'); /* Pulls the image from Images folder */
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* enables the parallax effect */
@@ -172,6 +172,50 @@ main {
   background-color: #262626;
   padding: 20px 40px;
   border-radius: 10px;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  display: flex;
+  gap: 25px;
+}
+
+/* This is the code for the profile picture*/
+.parallax-text img {
+  height: 180px;
+  width: 180px;
+  border-radius: 10px;
+}
+
+/* Section of the home box with info */
+.parallaxBoxInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+/* Download button styling */
+.download-btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+.download-btn button {
+  font-size: 15px;
+  padding: 5px 5px;
+  background-color: white;
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  transition: background-color .4s ease;
+}
+
+.download-btn button:hover {
+  background-color: #F56E0F;
+}
+
+/*This is resizing of the black box that contains the profile picture and about me and stuff*/
+@media (max-width: 750px) {
+  .parallax-text {
+    flex-direction: column;
+    gap: 40px;
+  }
 }
 
 /*Design for the actuall box that holds the Experience and Education Info*/
@@ -180,6 +224,7 @@ main {
   justify-content: center;
   align-content: center;
   padding: 50px;
+  background-color: #262626;
 }
 
 .experience {
@@ -187,6 +232,7 @@ main {
   flex-direction: column;
   width: 700px;
   font-size: 18px;
+  color: white;
 }
 
 .experience p, ul {
