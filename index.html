@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simple Page Layout</title>
+  <title>Jimmie Cox Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/> 
@@ -24,11 +24,11 @@
         
         <!--Thsi is for the navigation buttons-->
         <nav class="nav-buttons">
-          <button class="button">Home</button>
-          <button class="button">Experience</button>
-          <button class="button">Projects</button>
-          <button class="button">Resume</button>
-          <button class="button">Contact</button>
+          <a href=""><button class="button">Home</button></a>
+          <a href="#e"><button class="button">Experience</button></a>
+          <a href="#p"><button class="button">Projects</button></a>
+          <a href="#m"><button class="button">Medium</button></a>
+          <a href="#c"><button class="button">Contact</button></a>
         </nav>
         <!--This is a spacer for the site-name and nav-buttons-->
         <div class="spacer"></div>
@@ -56,6 +56,9 @@
             <img src="Images/ProfilePicture.jpg" alt="Profile Picture">
             <h1>Jimmie Cox</h1>
             <p>Undergraduate Student At Wright State University</p>
+            <a href="https://github.com/ItsMeJimmie" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/james-cox-30296b251/ " target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+            <i class="fa-solid fa-envelope fa-2x"></i>
             
           </div>
           <div class="parallaxBoxInfo">
@@ -72,9 +75,12 @@
               <!--This is the div for interests-->
               <div class="interests">
                 <h1>Interests</h1>
-                <ul>
+                <ul class="itemInsterests">
                     <li>Autonomous Systems</li>
                     <li>Machine Learning</li>
+                    <li>Robotics</li>
+                    <li>Web Development</li>
+                    <li>2D Video Game Development</li>
                 </ul>
 
               </div>
@@ -94,8 +100,8 @@
 
       <section class="experienceContainer">
         <div class="experience">
-          <h1>Experience</h1>
-
+          <h1 id="e">Experience</h1>
+          <div class="spacer3"></div>
           <h4>WSU CaTS IT Help Desk | Senior IT Help Desk Employee</h4>
           <h5>January 2023 - Current | Dayton, Ohio</h5>
           <ul>
@@ -104,7 +110,7 @@
             <li>Used Beyond Trust Remote Support software to remote into clients’ computers to troubleshoot and fix an array of computer related issues.</li>
             <li>Used Beyond Trust Remote Support software to remote into clients’ computers to troubleshoot and fix a multitude of computer related issues.</li>
           </ul>
-
+          <div class="spacer2"></div>
           <h4>Heroux Devtek | Mechanical Engineering Intern</h4>
           <h5>June 2022 - August 2022 | Springfield, Ohio</h5>
           <ul>
@@ -116,23 +122,97 @@
           </ul>
 
         </div>
-        <div class="spacer2"></div>
-        <div class="projects">
-          <h1>Projects</h1>
+      </section>
 
-          <h4>Image Segmentation Project</h4>
+      <!--This is the section for my projects-->
+      <section class="projectsSection">
+        <div class="projects">
+          <h1 id="p">Projects</h1>
+          <div class="spacer3"></div>
+          <h4>Autonomous Drone</h4>
+          <h5>Summer 2025 | Personal Project</h5>
+          <ul>
+            <li>[Insert INFO]</li>
+            <li>[Insert INFO]</li>
+          </ul>
+          <div class="spacer2"></div>
+          <h4>Earth Terrain Image Segmentation Project</h4>
+          <h5>Fall 2024 | Course: Intro To Machine Learning</h5>
+          <ul>
+            <li>Wrote the Python code that pulls from a dataset of terrain images to build a
+              mask and create terrain segmentation images using a Support Vector Machine</li>
+            <li>Worked in conjunction with another classmate to create our report in the
+              Springer style and presentation for the project.</li>
+          </ul>
+          <div class="spacer2"></div>
+          <h4>Portfolio Website</h4>
+          <h5>Spring 2025 | Personal Project</h5>
+          <ul>
+            <li>Designed and wrote this website using HTML, CSS, and Javascript.</li>
+            <li>Created this with other tools including fontawesome, Google Fonts, Formspree</li>
+          </ul>
+          <div class="spacer2"></div>
+          <h4>Floor Plan OCR Script</h4>
+          <h5>Spring 2025 | Course: Intro To Software Engineering</h5>
+          <ul>
+            <li>Used Poppler software to convert .pdf images of Wright State Universities floor plans to .png images.</li>
+            <li>Used Tesseract to extract the written room numbers inlcluding the x and y coordinates of the text.</li>
+            <li>Outputted all data into an excel sheet which was used in Godot to build floor node locations</li>
+          </ul>
+          <div class="spacer2"></div>
+          <h4>Wright State Main Campus Mapping Project</h4>
+          <h5>Spring 2025 | Course: Intro To Software Engineering</h5>
+          <ul>
+            <li>Worked in Godot to </li>
+            <li>[Insert More Info]</li>
+            <li>[Insert More Info]]</li>
+          </ul>
         </div>
       </section>
 
+      <section class="mediumArticles">
+        <h1 style="color: #FBFBFB;" id="m">MEDIUM ARTICLES</h1>
+        <div class="medium-grid">
+          <a href="https://medium.com/@cox.366/a-simple-explanation-of-overfitting-vs-d36d731998e9" target="_blank"  class="article-card">
+            <img src="Images/underfitting.webp" alt="Article 1">
+            <p class="article-title">Overfitting vs. Underfitting</p>
+          </a>
+          <a href="https://medium.com/@cox.366/a-simple-explanation-of-supervised-vs-unsupervised-vs-reinforcement-machine-learning-228ecf78cb45" target="_blank"  class="article-card">
+            <img src="Images/Supervised.png" alt="Article 2">
+            <p class="article-title">ML Types of Learning</p>
+          </a>
+        </div>
+      </section>
+
+      <!--Contact Me Section that includes a formspree form-->
       <section class="contact">
-        <h1>CONTACT ME</h1>
+        <h1 id="c">CONTACT ME</h1>
+        <p>Email: cox.366 AT wright.edu</p>
+        <!--This is for the contact form-->
+        <form action="https://formspree.io/f/mzzrpkbz" method="POST" class="contact-form">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required>
+        
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+        
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="5" required></textarea>
+        
+          <button type="submit">Send</button>
+        </form>
+
       </section>
 
 
     </main>
 
     <footer>
-      <p>&copy; 2025 My Website</p>
+      <p>&copy; 2025 Jimmie Cox Portfolio</p>
+      <div class="spacer3"></div>
+      <a href="https://github.com/ItsMeJimmie" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/james-cox-30296b251/ " target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
+      <i class="fa-solid fa-envelope fa-2x"></i>
     </footer>
   </div>
   
