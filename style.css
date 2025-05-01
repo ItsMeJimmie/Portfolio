@@ -20,6 +20,15 @@ h1, h2, h3, h4, h5 {
   font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
 
+.fa-solid, .fa-brands {
+  color: #F8F8FF;
+  transition: color .4s ease
+}
+
+.fa-solid:hover, .fa-brands:hover {
+  color: #F56E0F;
+}
+
 /*
 SPACING
 SPACING
@@ -206,7 +215,6 @@ main {
   flex-direction: column;
   align-items: baseline;
 }
-
 /* Download button styling */
 .download-btn {
   padding-top: 10px;
