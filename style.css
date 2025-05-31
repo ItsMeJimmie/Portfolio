@@ -331,7 +331,7 @@ main {
 
 /*projectSection Styles Here*/
 .projectsSection {
-  background-color: #F8F8FF;
+  background-color: #f0efef;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -410,6 +410,7 @@ main {
 
 /* This is for contact */
 .contact {
+  background-color: #f0efef;
   padding: 50px;
 }
 
@@ -437,12 +438,12 @@ main {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  background-color: #F8F8FF;
+  background-color: #f0efef;
 }
 
 .contact-form button {
   padding: 0.75rem;
-  background-color: #F8F8FF; /* primary color */
+  background-color: #f0efef; /* primary color */
   color: #262626;
   font-weight: bold;
   border: none;
