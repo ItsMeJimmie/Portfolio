@@ -7,17 +7,10 @@
 
 html, body {
   height: 100%;
-  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-  background-color: #F8F8FF;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #1a1a1a;
+  color: #FBFBFB;
   scroll-behavior: smooth;
-}
-
-p, li {
-  font-family: 'Raleway', 'Courier New', Courier, monospace;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
 
 .fa-solid, .fa-brands {
@@ -49,7 +42,6 @@ header {
   justify-content: space-between;
   align-items: center;
   position: relative;
-  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
 
 /* Buttons centered */
@@ -60,13 +52,12 @@ header {
 }
 
 /* Navigation buttons */
-.nav-buttons button, 
+.nav-buttons button,
 .mobile-menu button {
   margin: 0 5px;
   padding: 8px 16px;
   font-size: 14px;
   background-color: #262626;
-  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
   color: #FBFBFB;
   border: none;
   border-radius: 4px;
@@ -174,7 +165,6 @@ main {
   background-color: #262626;
   padding: 20px 40px;
   border-radius: 10px;
-  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
   display: flex;
   gap: 25px;
 }
@@ -201,14 +191,16 @@ main {
 
 .download-btn button {
   font-size: 15px;
-  padding: 5px 5px;
-  background-color: #F8F8FF;
-  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  padding: 5px 10px;
+  background-color: #F56E0F;
+  color: #FBFBFB;
+  font-weight: 500;
+  border: none;
   transition: background-color .4s ease;
 }
 
 .download-btn button:hover {
-  background-color: #F56E0F;
+  background-color: #ff8534;
   cursor: pointer;
 }
 
@@ -308,7 +300,7 @@ main {
 
 /*projectSection Styles Here*/
 .projectsSection {
-  background-color: #f0efef;
+  background-color: #1f1f1f;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -322,7 +314,7 @@ main {
 
 /*Projects Styles Here*/
 .projects {
-  color: #262626;
+  color: #FBFBFB;
 }
 
 .mediumArticles {
@@ -369,21 +361,21 @@ main {
 
 /* This is for contact */
 .contact {
-  background-color: #f0efef;
+  background-color: #1f1f1f;
   padding: 50px;
+  color: #FBFBFB;
 }
 
 .contact-form {
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #262626; 
+  background-color: #262626;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
 }
 
 .contact-form label {
@@ -395,15 +387,16 @@ main {
 .contact-form textarea {
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #3a3a3a;
   font-size: 1rem;
-  background-color: #f0efef;
+  background-color: #2d2d2d;
+  color: #FBFBFB;
 }
 
 .contact-form button {
   padding: 0.75rem;
-  background-color: #f0efef; /* primary color */
-  color: #262626;
+  background-color: #F56E0F;
+  color: #FBFBFB;
   font-weight: bold;
   border: none;
   border-radius: 8px;
@@ -412,7 +405,7 @@ main {
 }
 
 .contact-form button:hover {
-  background-color: #F56E0F;
+  background-color: #ff8534;
 }
 
 /* Footer Style */
@@ -422,4 +415,40 @@ footer {
   text-align: center;
   padding: 15px;
   font-size: 14px;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #F56E0F;
+  color: #FBFBFB;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: #ff8534;
+}
+
+.back-to-top i {
+  color: #FBFBFB;
+}
+
+.back-to-top:hover i {
+  color: #FBFBFB;
 }
