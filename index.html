@@ -3,262 +3,338 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jimmie Cox Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--This is my favicon section for the different kinds-->
-  <link rel="icon" type="image/png" sizes="32x32" href="favIcon/Sprite-00011.png">
+  <title>James (Jimmie) Cox, Graduate Researcher at Wright State University</title>
+  <meta name="description" content="James (Jimmie) Cox, graduate researcher in computer science at Wright State University, studying human-robot interaction in immersive environments." />
+
+  <!-- Social share preview -->
+  <meta property="og:title" content="James (Jimmie) Cox, Graduate Researcher" />
+  <meta property="og:description" content="Graduate researcher in computer science at Wright State University, studying human-robot interaction in immersive environments." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="Images/ProfilePicture.jpg" />
+
+  <!--Favicon-->
+  <link rel="icon" type="image/png" sizes="32x32" href="favIcon/Sprite-00011.png" />
 
   <!--Stylesheet for main page-->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/> 
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!--Google Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!--This is the div for a container that helps with sizing functionality-->
-  <div class="page-container">
-    <!--This the header tage that will contain my name and buttons-->
-    <header>
-      <div class="header-content">
-        <!--My Name for the site-->
-        <h1 class="site-name">James (Jimmie) Cox</h1>
-        
-        <!--Navigation buttons-->
-        <nav class="nav-buttons">
-          <a href="#"><button class="button">Home</button></a>
-          <a href="#e"><button class="button">Experience</button></a>
-          <a href="#p"><button class="button">Projects</button></a>
-          <a href="#m"><button class="button">Medium</button></a>
-          <a href="#c"><button class="button">Contact</button></a>
-        </nav>
-        <!--This is a spacer for the site-name and nav-buttons-->
-        <div class="spacer"></div>
-        <!--This is for creating the hamburger button-->
-        <div class="hamburger" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!--Sticky top bar: wordmark on the left, section nav on the right-->
+  <div class="topbar">
+    <div class="shell topbar-inner">
+      <a href="#" class="wordmark">James Cox</a>
+
+      <nav class="topnav" aria-label="Sections">
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+        <a href="#experience">Experience</a>
+        <a href="#side-work">Side Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!--Mobile menu trigger-->
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!--Mobile dropdown-->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Sections">
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
+      <a href="#experience">Experience</a>
+      <a href="#side-work">Side Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main id="main" class="shell">
+
+    <!--Hero: portrait, name, one-line role, short research statement-->
+    <header class="hero">
+      <img class="hero-portrait" src="Images/ProfilePicture.jpg" alt="James Cox" width="160" height="160" />
+      <div>
+        <h1 class="hero-name">James &ldquo;Jimmie&rdquo; Cox</h1>
+        <p class="hero-role">Graduate Researcher, Computer Science &middot; Wright State University</p>
+        <p class="hero-bio">
+          My research at the Terascale All-Sensing Research Studio (TARS) focuses on
+          human&ndash;robot collaboration and Extended Reality (XR).
+        </p>
+        <div class="hero-links">
+          <a href="ResumeInfo/JimmieCoxCurrent.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          <a href="https://github.com/ItsMeJimmie" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/james-cox-30296b251/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:cox.366@wright.edu">cox.366@wright.edu</a>
         </div>
       </div>
     </header>
 
-    <!-- Mobile menu dropdown -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#"><button>Home</button></a>
-      <a href="#e"><button>Experience</button></a>
-      <a href="#p"><button>Projects</button></a>
-      <a href="#m"><button>Medium</button></a>
-      <a href="#c"><button>Contact</button></a>
+    <!--Two columns: the spine on the left, shorter supporting sections in the rail.
+        On narrow screens both wrappers become display:contents so the sections
+        reflow into one stream in nav order (see the media query in style.css).-->
+    <div class="cols">
+      <div class="col-main">
+    <!--Publications: newest first. Use venue-pending on the badge for anything not yet accepted.-->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <h3 class="sub">Published</h3>
+      <div class="pub-group">
+        <div class="pub">
+          <div class="pub-year">2026</div>
+          <div>
+            <h4>Generative Prediction of Transfer Orientation Distributions for Novel Objects in
+              Robot-to-Human Handover</h4>
+            <p class="pub-authors"><strong>J. Cox</strong>, C. Kulathunga, M. Kyrarini, S. Banerjee, N. K. Banerjee</p>
+            <span class="venue">IEEE RO-MAN 2026</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-year">2025</div>
+          <div>
+            <h4>Descriptor: Real-World 3D Object, Human Giver, Human Receiver, and Sampled Robot
+              Grasps Dataset (HOH-Grasps)</h4>
+            <p class="pub-authors">X. Song, <strong>J. Cox</strong>, S. Banerjee, N. K. Banerjee</p>
+            <span class="venue">IEEE Data Descriptions</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="sub">Under Review</h3>
+      <div class="pub-group">
+        <div class="pub">
+          <div class="pub-year">2027</div>
+          <div>
+            <h4>Seeing What the Robot Understood: Visualizing Large Vision-Language and Speech Model
+              Agreement for Collaborative Tasks in Mixed Reality</h4>
+            <p class="pub-authors"><strong>J. Cox</strong>, C. Kulathunga, N. Hertlein, S. Banerjee, N. K. Banerjee</p>
+            <span class="venue">IEEE AIxVR 2027</span>
+            <span class="venue venue-pending">Work in progress</span>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-year">2027</div>
+          <div>
+            <h4>Forgenie: Using Extended Reality (XR) to Perform Multi-Component Scene and Object
+              Builds from AI-Generated 3D Models</h4>
+            <p class="pub-authors"><strong>J. Cox</strong>, E. Ibragimov, C. Kulathunga, S. Banerjee, N. K. Banerjee</p>
+            <span class="venue">IEEE AIxVR 2027</span>
+            <span class="venue venue-pending">Work in progress</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Experience-->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-year">2025&ndash;present</div>
+        <div>
+          <h3>Raider Technologies LLC &middot; Associate Software Engineer</h3>
+          <p class="entry-meta">December 2025 &ndash; present &middot; Dayton, Ohio</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2025&ndash;present</div>
+        <div>
+          <h3>Terascale All-Sensing Research Studio &middot; Researcher</h3>
+          <p class="entry-meta">August 2025 &ndash; present &middot; Dayton, Ohio</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2023&ndash;25</div>
+        <div>
+          <h3>WSU CaTS IT Help Desk &middot; Senior IT Help Desk Employee</h3>
+          <p class="entry-meta">January 2023 &ndash; December 2025 &middot; Dayton, Ohio</p>
+          <p>Supported students, faculty, and staff across Wright State&rsquo;s IT services,
+            troubleshooting hardware and software issues in person, by phone, and through
+            BeyondTrust remote sessions.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2022</div>
+        <div>
+          <h3>Heroux Devtek &middot; Mechanical Engineering Intern</h3>
+          <p class="entry-meta">June 2022 &ndash; August 2022 &middot; Springfield, Ohio</p>
+          <p>Designed 3D animated work instructions in 3DVIA for the production floor, and
+            catalogued previously undocumented landing gear parts for the F-35, C-130, B-1B,
+            F-18, F-15, and Boeing 737.</p>
+        </div>
+      </div>
+    </section>
+    <!--Personal projects-->
+    <section id="projects">
+      <h2>Personal Projects</h2>
+
+      <div class="entry">
+        <div class="entry-year">2025</div>
+        <div>
+          <h3>Wright State Main Campus Mapping</h3>
+          <p class="entry-meta">Intro to Software Engineering &middot; Team Project (3)</p>
+          <p>Indoor wayfinding for the Wright State main campus, built in Godot. Designed the UI and
+            the alphabet-trie data structure holding room location nodes, plus the informational node
+            system that surfaces room and building details on click.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2025</div>
+        <div>
+          <h3>Floor Plan OCR Pipeline</h3>
+          <p class="entry-meta">Intro to Software Engineering</p>
+          <p>Python pipeline converting PDF floor plans to images with Poppler, then extracting room
+            numbers and their coordinates with Tesseract. Output fed the campus mapping project&rsquo;s node graph.</p>
+        </div>
+      </div>
+    </section>
+      </div>
+
+      <div class="col-side">
+    <!--Education-->
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="entry">
+        <div class="entry-year">2027</div>
+        <div>
+          <h3>Ph.D. Computer Science &middot; Wright State University</h3>
+          <p>Starting Fall 2027.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2027</div>
+        <div>
+          <h3>M.S. Computer Science &middot; Wright State University</h3>
+          <p>In progress, expected Spring 2027.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2025</div>
+        <div>
+          <h3>B.S. Computer Science &middot; Wright State University</h3>
+          <p>Completed Fall 2025.</p>
+        </div>
+      </div>
+    </section>
+    <!--Funding and awards. SMART goes here only once it is actually awarded.-->
+    <section id="awards">
+      <h2>Funding &amp; Awards</h2>
+
+      <div class="entry">
+        <div class="entry-year">2026&ndash;27</div>
+        <div>
+          <h3>DAGSI Fellowship</h3>
+          <p class="entry-meta">Summer 2026 &ndash; Spring 2027</p>
+          <p>Supporting DAGSI call RX26-12, &ldquo;Human-Robot Collaboration for Manufacturing
+            through Natural Interactions.&rdquo;</p>
+        </div>
+      </div>
+    </section>
+    <!--Side work: things run alongside research, kept out of the main Experience list-->
+    <section id="side-work">
+      <h2>Side Work</h2>
+      <p class="prose section-note">Run alongside my research and professional work.</p>
+
+      <div class="entry">
+        <div class="entry-year">2026&ndash;present</div>
+        <div>
+          <h3>Little Astra Games &middot; Founder</h3>
+          <p class="entry-meta">Dayton, Ohio</p>
+          <p>A local indie game development studio making cozy role-playing games.
+            Our flagship game, Atomic Oasis, is on Steam.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2026&ndash;present</div>
+        <div>
+          <h3>Freelance Web Development</h3>
+          <p class="entry-meta">Dayton, Ohio</p>
+          <p>I have built and managed websites for clients including
+            <a href="https://raidertechnologies.com/" target="_blank" rel="noopener">Raider Technologies</a>
+            and <a href="https://charliespizzas.com/" target="_blank" rel="noopener">Charlies Pizzas</a>.</p>
+        </div>
+      </div>
+    </section>
+    <!--Writing-->
+    <section id="writing">
+      <h2>Writing</h2>
+      <p class="prose section-note">Explainers published on Medium.</p>
+      <div class="notes">
+        <a href="https://medium.com/@cox.366/a-simple-explanation-of-overfitting-vs-d36d731998e9" target="_blank" rel="noopener">
+          Overfitting vs. Underfitting <span>Medium</span>
+        </a>
+        <a href="https://medium.com/@cox.366/a-simple-explanation-of-supervised-vs-unsupervised-vs-reinforcement-machine-learning-228ecf78cb45" target="_blank" rel="noopener">
+          Supervised vs. Unsupervised vs. Reinforcement Learning <span>Medium</span>
+        </a>
+        <a href="https://medium.com/@cox.366/a-simple-explanation-of-gradient-descent-stochastic-batch-and-mini-batch-4502c6ae5f11" target="_blank" rel="noopener">
+          Gradient Descent: Stochastic, Batch, and Mini-Batch <span>Medium</span>
+        </a>
+      </div>
+    </section>
+    <!--Contact-->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="prose">
+        Reach me at <a href="mailto:cox.366@wright.edu">cox.366@wright.edu</a>.
+      </p>
+    </section>
+      </div>
     </div>
 
-    <main>
-      <!--This is to create a parallax image-->
-      <section class="parallax">
-        <div class="parallax-text">
-          <div>
-            <img src="Images/ProfilePicture.jpg" alt="Profile Picture">
-            <h1>Jimmie Cox</h1>
-            <p>Undergraduate Student At Wright State University</p>
-            <a href="https://github.com/ItsMeJimmie" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>
-            <a href="https://www.linkedin.com/in/james-cox-30296b251/ " target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
-            <a href="mailto:cox.366@wright.com"><i class="fa-solid fa-envelope fa-2x"></i></a>
-            
-          </div>
-          <div class="parallaxBoxInfo">
-            <h1>About Me</h1>
-            
-
-            <!--Button to get to my resume download as a pdf-->
-            <a href="ResumeInfo/JimmieCoxCurrent.pdf" target="_blank" class="download-btn">
-              <button>RESUME</button>
-            </a>
-
-            <div class="boxInterestAndEducation">
-              <!--This is the div for interests-->
-              <div class="interests">
-                <h1>Interests</h1>
-                <ul class="itemInterests">
-                    <li>Machine Learning</li>
-                    <li>Web Development</li>
-                    <li>Video Game Development</li>
-                </ul>
-
-              </div>
-              <!--This is the div for education-->
-              <div class="education">
-                <h1>Education</h1>
-                <h5>Wright State University</h5>
-                <p>Bachelor of Science in Computer Science - Fall 2025</p>
-                <p>Master of Science in Computer Science - Spring 2028 (In Progress)</p>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-      </section>
-
-      <section class="experienceContainer">
-        <div class="experience">
-          <h1 id="e">Experience</h1>
-          <div class="spacer3"></div>
-          <h4>Raider Technologies LLC | Intern</h4>
-          <h5>December 2025 - Current | Dayton, Ohio</h5>
-          <ul>
-            <li>To be filled out soon.</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Terascale All-Sensing Research Studio | Researcher</h4>
-          <h5>August 2025 - Current | Dayton, Ohio</h5>
-          <!--
-          <ul>
-            <li>Developing immersive VR-based platforms to understand human preferences when interacting with collaborative robot</li>
-            <li>Working on a gesture controlled virtual UR10 robot designed in Unity.</li>
-            <li>Integrating Delsys sEMG sensors and vision data from an Orrbec Femto Bolt RGB-D camera to understand user gestures to control the robot.</li>
-          </ul>
-          -->
-          <div class="spacer2"></div>
-          <h4>WSU CaTS IT Help Desk | Senior IT Help Desk Employee</h4>
-          <h5>January 2023 - December 2025 | Dayton, Ohio</h5>
-          <ul>
-            <li>Answered student, faculty, and staff emails, phone calls, and in person questions regarding IT services and software Wright State offers.</li>
-            <li>Used Beyond Trust Remote Support software to remote into clients’ computers to troubleshoot and fix an array of computer related issues.</li>
-            <li>Handled Xerox printer toner cartridges, waste containers, and other Xerox printer parts for the XC400, XC600 and XC8000 series printers.</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Heroux Devtek | Mechanical Engineering Intern</h4>
-          <h5>June 2022 - August 2022 | Springfield, Ohio</h5>
-          <ul>
-            <li>Designed 3D animated work instructions using 3D VIA for workers on job floor as the main internship project.</li>
-            <li>Participated in a weekly progress report presentation to plant higher ups on the 3D VIA work instructions project.</li>
-            <li>Located and documented landing gear parts for a variety of aircraft that were previously undocumented around job floor as the aircraft include the F-35, C-130, B-1B, F-18, F-15, and Boeing 737.</li>
-            <li>Cleaned and restocked spill kits around the job floor.</li>
-            <li>Helped to write and test an NC program for a CNC machine.</li>
-          </ul>
-
-        </div>
-      </section>
-
-      <!--This is the section for my projects-->
-      <section class="projectsSection">
-        <div class="projects">
-          <h1 id="p">Projects</h1>
-          <div class="spacer3"></div>
-          <h4>Endless Horizon</h4>
-          <h5>Summer 2025 (Still In Progress) | Personal Project</h5>
-          <ul>
-            <li>Working with the Godot 4.4.1 game engine to build out a space based exploration video game titled Endless Horizon.</li>
-            <li>Using the software called Aesprite to design the game as a 2D Isometric tile game.</li>
-            <li>Creating all content myself as the sole developer, artist, programmer, etc. [Solo Dev]</li>
-            <li>Will create a website from my github pages to document progress. [Not Started]</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Autonomous Drone</h4>
-          <h5>Summer 2025 | Personal Project</h5>
-          <ul>
-            <li>[ON HOLD; I CAN'T AFFORD TO MAKE THIS YET]</li>
-            <li>[ON HOLD; I CAN'T AFFORD TO MAKE THIS YET]</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Portfolio Website</h4>
-          <h5>Spring 2025 | Personal Project</h5>
-          <ul>
-            <li>Designed and wrote this website using HTML, CSS, and Javascript.</li>
-            <li>Created this with other tools including fontawesome, Google Fonts, Formspree.</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Floor Plan OCR Script</h4>
-          <h5>Spring 2025 | Course: Intro To Software Engineering</h5>
-          <ul>
-            <li>Used Poppler software to convert .pdf images of Wright State Universities floor plans to .png images.</li>
-            <li>Used Tesseract to extract the written room numbers inlcluding the x and y coordinates of the text.</li>
-            <li>Outputted all data into an excel sheet which was used in a Godot GDscript script to build floor node locations.</li>
-            <li>Used Python as the primary language to implement Poppler and Tesseract.</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Wright State Main Campus Mapping Project</h4>
-          <h5>Spring 2025 (Will continue in Fall 2025) | Course: Intro To Software Engineering</h5>
-          <ul>
-            <li>Worked in conjuction with the Floor Plan OCR Script project that pulled floor plans of the Wright State Main Campus to build the map.</li>
-            <li>Primarily worked in Godot to build aspects of the UI as well as the data structure to hold all the room location nodes [Alphabet Trie].</li>
-            <li>Built the informational node concept that allows a user to click on a node to display information about a room and/or building.</li>
-            <li>Demonstrated good teamwork abilities as the project required collaboration with a team of three people including myself.</li>
-            <li>Built demonstration website that hosts an explanation of the project, weekly reports, and other information about the project.</li>
-          </ul>
-          <div class="spacer2"></div>
-          <h4>Earth Terrain Image Segmentation Project</h4>
-          <h5>Fall 2024 | Course: Intro To Machine Learning</h5>
-          <ul>
-            <li>Wrote the Python code that pulls from a dataset of terrain images to build a
-              mask and create terrain segmentation images using a Support Vector Machine.</li>
-            <li>Worked in conjunction with another classmate to create our report in the
-              Springer style and presentation for the project.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="mediumArticles">
-        <h1 id="m">MEDIUM ARTICLES</h1>
-        <div class="medium-grid">
-          <a href="https://medium.com/@cox.366/a-simple-explanation-of-overfitting-vs-d36d731998e9" target="_blank"  class="article-card">
-            <img src="Images/underfitting.webp" alt="Article 1">
-            <p class="article-title">Overfitting vs. Underfitting</p>
-          </a>
-          <a href="https://medium.com/@cox.366/a-simple-explanation-of-supervised-vs-unsupervised-vs-reinforcement-machine-learning-228ecf78cb45" target="_blank"  class="article-card">
-            <img src="Images/Supervised.png" alt="Article 2">
-            <p class="article-title">ML Types of Learning</p>
-          </a>
-          <a href="https://medium.com/@cox.366/a-simple-explanation-of-gradient-descent-stochastic-batch-and-mini-batch-4502c6ae5f11" target="_blank"  class="article-card">
-            <img src="Images/GradientDescent.webp" alt="Article 3">
-            <p class="article-title">Gradient Descent</p>
-          </a>
-        </div>
-      </section>
-
-      <!--Contact Me Section that includes a formspree form-->
-      <section class="contact">
-        <h1 id="c">CONTACT ME</h1>
-        <p>Email: cox.366 AT wright.edu</p>
-        <!--This is for the contact form-->
-        <form action="https://formspree.io/f/mzzrpkbz" method="POST" class="contact-form">
-          <label for="name">Name</label>
-          <input type="text" name="name" id="name" required>
-        
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" required>
-        
-          <label for="message">Message</label>
-          <textarea name="message" id="message" rows="5" required></textarea>
-        
-          <button type="submit">Send</button>
-        </form>
-
-      </section>
 
 
-    </main>
 
-    <footer>
-      <p>&copy; 2025 Jimmie Cox Portfolio</p>
-      <div class="spacer3"></div>
-      <a href="https://github.com/ItsMeJimmie" target="_blank"><i class="fa-brands fa-square-github fa-2x"></i></a>
-      <a href="https://www.linkedin.com/in/james-cox-30296b251/ " target="_blank"><i class="fa-brands fa-linkedin fa-2x"></i></a>
-      <a href="mailto:cox.366@wright.com"><i class="fa-solid fa-envelope fa-2x"></i></a>
-    </footer>
 
-    <!-- Back to top button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-      <i class="fa-solid fa-arrow-up"></i>
-    </button>
-  </div>
+
+
+
+
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <p>&copy; 2026 James Cox &middot; Dayton, Ohio</p>
+      <div class="footer-icons">
+        <a href="https://github.com/ItsMeJimmie" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/james-cox-30296b251/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="mailto:cox.366@wright.edu" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
 
   <!--Primarily the main script for the index.html page-->
   <script src="script.js"></script>

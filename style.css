@@ -1,3 +1,23 @@
+/* ==========================================================================
+   James Cox portfolio
+   Layout: single 760px column, academic homepage structure.
+   ========================================================================== */
+
+:root {
+  --bg: #fbfaf8;
+  --ink: #1b1b1a;
+  --ink-soft: #2e2c29;
+  --muted: #5f5d58;
+  --rule: #e3e0d9;
+  --accent: #9a3412;
+  --accent-soft: #fdf2ec;
+  --panel: #ffffff;
+
+  --shell: 1120px;
+  --measure: 68ch;
+  --rail: 320px;
+}
+
 /* Basic Reset */
 * {
   box-sizing: border-box;
@@ -5,435 +25,453 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #1a1a1a;
-  color: #FBFBFB;
+html {
   scroll-behavior: smooth;
+  /* keep anchored headings clear of the sticky bar */
+  scroll-padding-top: 76px;
 }
 
-.fa-solid, .fa-brands {
-  color: #F8F8FF;
-  transition: color .4s ease;
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.65 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.fa-solid:hover, .fa-brands:hover {
-  color: #F56E0F;
+/* The one wrapper that constrains line length across the whole page */
+.shell {
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* Wrapper to hold the structure */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Header Style */
-header {
-  background-color: #262626;
-  color: #FBFBFB;
-  padding: 20px;
-}
-
-/* Flexbox layout for header content */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-/* Buttons centered */
-.nav-buttons {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Navigation buttons */
-.nav-buttons button,
-.mobile-menu button {
-  margin: 0 5px;
-  padding: 8px 16px;
-  font-size: 14px;
-  background-color: #262626;
-  color: #FBFBFB;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-/* Navigation button style when hovering over */
-.nav-buttons button:hover,
-.mobile-menu button:hover {
-  color: #F56E0F;
-}
-
-/* Hamburger icon */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* Mobile dropdown menu (hidden by default) */
-.mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  background-color: #262626;
-  text-align: center;
-  transition: max-height 1s ease;
-}
-
-/* Mobile dropdown button look */
-.mobile-menu button {
-  margin: 10px auto;
-  width: 100%;
-}
-
-/* When visible */
-.mobile-menu.show {
-  max-height: 500px; /* enough to fit your buttons */
-  opacity: 1;
-}
-
-/* Optional spacer if needed */
-.spacer {
-  flex: 1;
-}
-
-/* Another spacer */
-.spacer2 {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-/* Another spacer */
-.spacer3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* Name aligned to left */
-.site-name {
-  font-size: 24px;
-  margin: 0;
-  flex: 1;
-}
-
-/* Media query for screen width 800px and below */
-@media (max-width: 1200px) {
-  .nav-buttons {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .mobile-menu.show {
-    display: flex;
-  }
-}
-
-/* Main Content */
-main {
-  flex: 1;
-}
-
-/* Parallax implementation*/
-.parallax {
-  position: relative;
-  background-image: url('Images/background.jpg'); /* Pulls the image from Images folder */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* enables the parallax effect */
-  height: 750px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #FBFBFB;
-}
-
-/*Design for the text in the box*/
-.parallax-text {
-  background-color: #262626;
-  padding: 20px 40px;
-  border-radius: 10px;
-  display: flex;
-  gap: 25px;
-}
-
-/* This is the code for the profile picture*/
-.parallax-text img {
-  height: 180px;
-  width: 180px;
-  border-radius: 10px;
-}
-
-/* Section of the home box with info */
-.parallaxBoxInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-}
-/* Download button styling */
-.download-btn {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius: 10px;
-}
-
-.download-btn button {
-  font-size: 15px;
-  padding: 5px 10px;
-  background-color: #F56E0F;
-  color: #FBFBFB;
-  font-weight: 500;
-  border: none;
-  transition: background-color .4s ease;
-}
-
-.download-btn button:hover {
-  background-color: #ff8534;
-  cursor: pointer;
-}
-
-/* This is for  the interests and education*/
-.boxInterestAndEducation {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-/* This is meant for sizing of the interests and education ul and p tag */
-.boxInterestAndEducation ul, p {
-  font-size: 13px;
-}
-
-/* This is for  the interests*/
-.interests {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-right: 10px;
-}
-
-.itemInterests {
-  text-align: left;
-}
-
-/* Interest and the children list items to look indented */
-.interests ul {
-  padding-left: 30px;
-}
-
-/* This is for the education*/
-.education {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding-left: 20px;
-}
-
-
-/*This is resizing of the black box that contains the profile picture and about me and stuff*/
-@media (max-width: 750px) {
-  .parallax-text {
-    flex-direction: column;
-    gap: 40px;
-  }
-}
-
-/*This will be the resizing when 1000px max reached where the interests and education will be switched to colum rather than row*/
-@media (max-width: 1000px) {
-  .boxInterestAndEducation {
-    flex-direction: column;
-  }
-
-  .interests {
-    padding-left: 0px;
-    align-items: flex-start;
-  }
-
-  .interests ul {
-    padding-left: 30px;
-  }
-
-  .education {
-    padding-left: 0px;
-  }
-}
-
-/*Design for the actuall box that holds the Experience and Education Info*/
-.experienceContainer {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 50px;
-  background-color: #262626;
-  flex-direction: column;
-}
-
-.experience {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  font-size: 18px;
-  color: #FBFBFB;
-}
-
-/*This is for the buillet point size*/
-.experience p, ul {
-  font-size: 15px;
-}
-
-/*bullet Point spacing for Experience*/
-.experience ul {
-  padding-left: 25px;
-}
-
-/*projectSection Styles Here*/
-.projectsSection {
-  background-color: #1f1f1f;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  padding: 50px;
-  flex-direction: column;
-}
-
-.projectsSection ul {
-  padding-left: 25px;
-}
-
-/*Projects Styles Here*/
-.projects {
-  color: #FBFBFB;
-}
-
-.mediumArticles {
-  background-color: #262626;
-  padding: 50px;
-}
-
-/*Section for the medium grid style*/
-.medium-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.article-card {
+a {
+  color: var(--accent);
   text-decoration: none;
-  color: inherit;
-  transition: transform 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Visible keyboard focus on every interactive element */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 24px;
+  top: 10px;
+  z-index: 100;
+  background: var(--panel);
+  padding: 9px 14px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------- top bar */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* The bar spans the full window rather than the 760px text column, so the
+   name sits hard left and the nav hard right. Capped so it does not stretch
+   absurdly on ultrawide displays. */
+.topbar-inner {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  gap: 24px;
+  height: 58px;
+  max-width: 1440px;
+  padding: 0 32px;
 }
 
-.article-card:hover {
-  transform: scale(1.03);
+.wordmark {
+  font: 600 16px 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  border: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.article-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.article-title {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  text-align: center;
-  font-weight: 500;
-  color: #FBFBFB;
-}
-
-
-/* This is for contact */
-.contact {
-  background-color: #1f1f1f;
-  padding: 50px;
-  color: #FBFBFB;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #262626;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* nowrap guards keep the bar on one line; if it ever outgrows the window it
+   will overflow visibly rather than silently reflowing into two rows. */
+.topnav {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 22px;
 }
 
-.contact-form label {
-  font-weight: 600;
-  color: #FBFBFB;
+.topnav a {
+  font-size: 14.5px;
+  color: var(--muted);
+  border: 0;
+  white-space: nowrap;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #3a3a3a;
-  font-size: 1rem;
-  background-color: #2d2d2d;
-  color: #FBFBFB;
+.topnav a:hover {
+  color: var(--accent);
 }
 
-.contact-form button {
-  padding: 0.75rem;
-  background-color: #F56E0F;
-  color: #FBFBFB;
-  font-weight: bold;
+/* Mobile menu trigger: hidden until the nav collapses */
+.menu-toggle {
+  display: none;
+  background: none;
   border: none;
-  border-radius: 8px;
+  color: var(--ink);
+  font-size: 22px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 4px 6px;
 }
 
-.contact-form button:hover {
-  background-color: #ff8534;
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
 }
 
-/* Footer Style */
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 13px 24px;
+  color: var(--ink);
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 15.5px;
+}
+
+.mobile-menu a:last-child {
+  border-bottom: 0;
+}
+
+.mobile-menu a:hover {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+/* ------------------------------------------------------------------ hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 30px;
+  align-items: start;
+  padding: 54px 0 40px;
+}
+
+.hero-portrait {
+  width: 160px;
+  height: 160px;
+  border-radius: 4px;
+  object-fit: cover;
+  filter: grayscale(0.15);
+}
+
+.hero-name {
+  font: 600 34px/1.15 'Newsreader', Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.hero-role {
+  color: var(--muted);
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+.hero-bio {
+  margin-top: 16px;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 14.5px;
+}
+
+/* --------------------------------------------------------- two columns */
+
+/* Publications, Experience and Projects form the spine; the shorter
+   supporting sections sit in a narrower rail beside them. */
+.cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--rail);
+  gap: 0 56px;
+  align-items: start;
+}
+
+.col-main > section:first-child,
+.col-side > section:first-child {
+  padding-top: 30px;
+}
+
+/* The rail is secondary: no year gutter, slightly quieter type. Scoped to
+   the two-column width so nothing needs undoing once it stacks. */
+@media (min-width: 901px) {
+  .col-side .entry,
+  .col-side .pub {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .col-side .entry-year {
+    padding-top: 0;
+    font-size: 13px;
+  }
+
+  .col-side .entry p,
+  .col-side .entry li {
+    font-size: 14.5px;
+  }
+
+  .col-side .prose,
+  .col-side .notes a {
+    font-size: 15px;
+  }
+}
+
+/* -------------------------------------------------------------- sections */
+
+main section {
+  padding: 34px 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* Section label: small, quiet, uppercase, never competes with the name */
+main section > h2 {
+  font: 600 13px 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.sub {
+  font: 600 13px 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--muted);
+  margin: 30px 0 14px;
+}
+
+.prose {
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+.section-note {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
+
+/* --------------------------------------------- entries (experience etc.) */
+
+/* Year gutter on the left, content on the right. Wide enough for the
+   longest label, "2025-present", without wrapping. */
+.entry {
+  display: grid;
+  grid-template-columns: 104px 1fr;
+  gap: 18px;
+  padding: 15px 0;
+}
+
+.entry-year {
+  font: 500 14px 'Inter', sans-serif;
+  color: var(--muted);
+  padding-top: 3px;
+  white-space: nowrap;
+}
+
+.entry h3 {
+  font: 600 16.5px 'Inter', sans-serif;
+}
+
+.entry h4 {
+  font: 600 16px 'Inter', sans-serif;
+}
+
+.entry-meta {
+  font-size: 14.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.entry p {
+  max-width: var(--measure);
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.entry ul {
+  margin-top: 9px;
+  padding-left: 20px;
+  max-width: var(--measure);
+}
+
+.entry li {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  margin-bottom: 5px;
+}
+
+/* ---------------------------------------------------------- publications */
+
+.pub {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pub-group .pub:last-child {
+  border-bottom: 0;
+}
+
+.pub-year {
+  font: 500 14px 'Inter', sans-serif;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.pub h4 {
+  font: 600 17px/1.4 'Newsreader', Georgia, serif;
+}
+
+.pub-authors {
+  font-size: 14.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.pub-authors strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.venue {
+  display: inline-block;
+  margin-top: 7px;
+  margin-right: 6px;
+  font: 500 12px 'Inter', sans-serif;
+  letter-spacing: 0.04em;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  padding: 3px 9px;
+  border-radius: 3px;
+}
+
+.venue-pending {
+  background-color: #f1efea;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------------- writing list */
+
+.notes a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.notes a:last-child {
+  border-bottom: 0;
+}
+
+.notes a:hover {
+  color: var(--accent);
+}
+
+.notes span {
+  color: var(--muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- footer */
+
 footer {
-  background-color: #262626;
-  color: #FBFBFB;
-  text-align: center;
-  padding: 15px;
+  border-top: 1px solid var(--rule);
+  margin-top: 20px;
+  padding: 26px 0 48px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+footer p {
+  color: var(--muted);
   font-size: 14px;
 }
 
-/* Back to top button */
+.footer-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 19px;
+}
+
+.footer-icons a {
+  color: var(--muted);
+  border: 0;
+}
+
+.footer-icons a:hover {
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------- back to top */
+
 .back-to-top {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background-color: #F56E0F;
-  color: #FBFBFB;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--accent);
+  color: #ffffff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, background-color 0.3s ease;
-  z-index: 1000;
+  z-index: 30;
 }
 
 .back-to-top.show {
@@ -442,13 +480,97 @@ footer {
 }
 
 .back-to-top:hover {
-  background-color: #ff8534;
+  background-color: #7c2a0e;
 }
 
-.back-to-top i {
-  color: #FBFBFB;
+/* ------------------------------------------------------------ responsive */
+
+/* Below this width the two columns become one stream. The wrappers go
+   display:contents so the sections themselves become the flex items, which
+   lets `order` interleave them back into nav order rather than running the
+   whole main column before the whole rail. */
+@media (max-width: 900px) {
+  .cols {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-main,
+  .col-side {
+    display: contents;
+  }
+
+  #publications { order: 1; }
+  #education    { order: 2; }
+  #awards       { order: 3; }
+  #experience   { order: 4; }
+  #side-work    { order: 5; }
+  #projects     { order: 6; }
+  #writing      { order: 7; }
+  #contact      { order: 8; }
+
 }
 
-.back-to-top:hover i {
-  color: #FBFBFB;
+@media (max-width: 720px) {
+  .topnav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Once the nav collapses, line the name up with the text column again */
+  .topbar-inner {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  body {
+    font-size: 16.5px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 36px 0 30px;
+  }
+
+  .hero-portrait {
+    width: 124px;
+    height: 124px;
+  }
+
+  .hero-name {
+    font-size: 29px;
+  }
+
+  .entry,
+  .pub {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .entry-year,
+  .pub-year {
+    padding-top: 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
 }
