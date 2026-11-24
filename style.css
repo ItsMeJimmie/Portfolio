@@ -113,23 +113,6 @@ textarea:focus-visible {
 
 /* nowrap guards keep the bar on one line; if it ever outgrows the window it
    will overflow visibly rather than silently reflowing into two rows. */
-.topnav {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 22px;
-}
-
-.topnav a {
-  font-size: 14.5px;
-  color: var(--muted);
-  border: 0;
-  white-space: nowrap;
-}
-
-.topnav a:hover {
-  color: var(--accent);
-}
 
 /* Mobile menu trigger: hidden until the nav collapses */
 .menu-toggle {
@@ -637,16 +620,15 @@ footer p {
   }
 }
 
-@media (max-width: 720px) {
-  .topnav {
-    display: none;
-  }
-
+/* The rail carries navigation at 1001px and up, and the top bar is hidden
+   there; below it the hamburger covers the whole range. A horizontal list of
+   nine items does not fit between those two states, so it is never shown. */
+@media (max-width: 1000px) {
   .menu-toggle {
     display: block;
   }
 
-  /* Once the nav collapses, line the name up with the text column again */
+  /* line the name up with the text column */
   .topbar-inner {
     padding: 0 24px;
   }
