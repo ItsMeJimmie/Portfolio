@@ -41,4 +41,55 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  // Highlight the rail link for whichever section you are reading.
+  //
+  // The test line sits near the TOP of the viewport rather than a third of
+  // the way down: Awards and Writing are shorter than a third of a screen,
+  // so a lower line skips straight past them to the following section.
+  const railLinks = document.querySelectorAll(".railnav a");
+
+  if (railLinks.length) {
+    const sections = Array.prototype.slice.call(
+      document.querySelectorAll(".stream > section")
+    );
+    const LINE = 100; // px below the top of the viewport
+    let queued = false;
+
+    function highlight() {
+      queued = false;
+      const line = window.scrollY + LINE;
+      let current = sections[0];
+
+      sections.forEach(function (section) {
+        if (section.offsetTop <= line) {
+          current = section;
+        }
+      });
+
+      // at the very bottom the last section wins however short it is
+      const atBottom =
+        window.scrollY + window.innerHeight >= document.body.scrollHeight - 2;
+      if (atBottom) {
+        current = sections[sections.length - 1];
+      }
+
+      railLinks.forEach(function (link) {
+        link.classList.toggle("on", link.dataset.spy === current.id);
+      });
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!queued) {
+          queued = true;
+          requestAnimationFrame(highlight);
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", highlight);
+    highlight();
+  }
+
 });

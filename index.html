@@ -68,12 +68,13 @@
     </nav>
   </div>
 
-  <main id="main" class="shell">
+  <div class="layout">
 
-    <!--Hero: portrait, name, one-line role, short research statement-->
-    <header class="hero">
-      <img class="hero-portrait" src="Images/ProfilePicture.jpg" alt="James Cox" width="160" height="160" />
-      <div>
+    <!--Pinned rail: identity plus section nav. Below 1000px it unpins, the
+        section list hides and the top bar's menu takes over.-->
+    <aside class="rail">
+      <div class="rail-id">
+        <img class="hero-portrait" src="Images/ProfilePicture.jpg" alt="James Cox" width="160" height="160" />
         <h1 class="hero-name">James &ldquo;Jimmie&rdquo; Cox</h1>
         <p class="hero-role">Graduate Researcher, Computer Science &middot; Wright State University</p>
         <p class="hero-bio">
@@ -87,13 +88,21 @@
           <a href="mailto:cox.366@wright.edu">cox.366@wright.edu</a>
         </div>
       </div>
-    </header>
 
-    <!--Two columns: the spine on the left, shorter supporting sections in the rail.
-        On narrow screens both wrappers become display:contents so the sections
-        reflow into one stream in nav order (see the media query in style.css).-->
-    <div class="cols">
-      <div class="col-main">
+      <nav class="railnav" aria-label="Sections">
+          <a href="#publications" data-spy="publications">Publications</a>
+          <a href="#education" data-spy="education">Education</a>
+          <a href="#awards" data-spy="awards">Awards</a>
+          <a href="#experience" data-spy="experience">Experience</a>
+          <a href="#side-work" data-spy="side-work">Side Work</a>
+          <a href="#projects" data-spy="projects">Projects</a>
+          <a href="#writing" data-spy="writing">Writing</a>
+          <a href="#contact" data-spy="contact">Contact</a>
+      </nav>
+    </aside>
+
+    <!--Single reading stream, in the same order as the nav.-->
+    <main class="stream" id="main">
     <!--Publications: newest first. Use venue-pending on the badge for anything not yet accepted.-->
     <section id="publications">
       <h2>Publications</h2>
@@ -146,76 +155,6 @@
         </div>
       </div>
     </section>
-    <!--Experience-->
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="entry">
-        <div class="entry-year">2025&ndash;26</div>
-        <div>
-          <h3>Raider Technologies LLC &middot; Associate Software Engineer</h3>
-          <p class="entry-meta">December 2025 &ndash; October 2026 &middot; Dayton, Ohio</p>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-year">2025&ndash;present</div>
-        <div>
-          <h3>Terascale All-Sensing Research Studio &middot; Researcher</h3>
-          <p class="entry-meta">August 2025 &ndash; present &middot; Dayton, Ohio</p>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-year">2023&ndash;25</div>
-        <div>
-          <h3>WSU CaTS IT Help Desk &middot; Senior IT Help Desk Employee</h3>
-          <p class="entry-meta">January 2023 &ndash; December 2025 &middot; Dayton, Ohio</p>
-          <p>Supported students, faculty, and staff across Wright State&rsquo;s IT services,
-            troubleshooting hardware and software issues in person, by phone, and through
-            BeyondTrust remote sessions.</p>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-year">2022</div>
-        <div>
-          <h3>Heroux Devtek &middot; Mechanical Engineering Intern</h3>
-          <p class="entry-meta">June 2022 &ndash; August 2022 &middot; Springfield, Ohio</p>
-          <p>Designed 3D animated work instructions in 3DVIA for the production floor, and
-            catalogued previously undocumented landing gear parts for the F-35, C-130, B-1B,
-            F-18, F-15, and Boeing 737.</p>
-        </div>
-      </div>
-    </section>
-    <!--Personal projects-->
-    <section id="projects">
-      <h2>Personal Projects</h2>
-
-      <div class="entry">
-        <div class="entry-year">2025</div>
-        <div>
-          <h3>Wright State Main Campus Mapping</h3>
-          <p class="entry-meta">Intro to Software Engineering &middot; Team Project (3)</p>
-          <p>Indoor wayfinding for the Wright State main campus, built in Godot. Designed the UI and
-            the alphabet-trie data structure holding room location nodes, plus the informational node
-            system that surfaces room and building details on click.</p>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-year">2025</div>
-        <div>
-          <h3>Floor Plan OCR Pipeline</h3>
-          <p class="entry-meta">Intro to Software Engineering</p>
-          <p>Python pipeline converting PDF floor plans to images with Poppler, then extracting room
-            numbers and their coordinates with Tesseract. Output fed the campus mapping project&rsquo;s node graph.</p>
-        </div>
-      </div>
-    </section>
-      </div>
-
-      <div class="col-side">
     <!--Education-->
     <section id="education">
       <h2>Education</h2>
@@ -258,6 +197,48 @@
         </div>
       </div>
     </section>
+    <!--Experience-->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="entry">
+        <div class="entry-year">2025&ndash;26</div>
+        <div>
+          <h3>Raider Technologies LLC &middot; Associate Software Engineer</h3>
+          <p class="entry-meta">December 2025 &ndash; October 2026 &middot; Dayton, Ohio</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2025&ndash;present</div>
+        <div>
+          <h3>Terascale All-Sensing Research Studio &middot; Researcher</h3>
+          <p class="entry-meta">August 2025 &ndash; present &middot; Dayton, Ohio</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2023&ndash;25</div>
+        <div>
+          <h3>WSU CaTS IT Help Desk &middot; Senior IT Help Desk Employee</h3>
+          <p class="entry-meta">January 2023 &ndash; December 2025 &middot; Dayton, Ohio</p>
+          <p>Supported students, faculty, and staff across Wright State&rsquo;s IT services,
+            troubleshooting hardware and software issues in person, by phone, and through
+            BeyondTrust remote sessions.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2022</div>
+        <div>
+          <h3>Heroux Devtek &middot; Mechanical Engineering Intern</h3>
+          <p class="entry-meta">June 2022 &ndash; August 2022 &middot; Springfield, Ohio</p>
+          <p>Designed 3D animated work instructions in 3DVIA for the production floor, and
+            catalogued previously undocumented landing gear parts for the F-35, C-130, B-1B,
+            F-18, F-15, and Boeing 737.</p>
+        </div>
+      </div>
+    </section>
     <!--Side work: things run alongside research, kept out of the main Experience list-->
     <section id="side-work">
       <h2>Side Work</h2>
@@ -284,6 +265,31 @@
         </div>
       </div>
     </section>
+    <!--Personal projects-->
+    <section id="projects">
+      <h2>Personal Projects</h2>
+
+      <div class="entry">
+        <div class="entry-year">2025</div>
+        <div>
+          <h3>Wright State Main Campus Mapping</h3>
+          <p class="entry-meta">Intro to Software Engineering &middot; Team Project (3)</p>
+          <p>Indoor wayfinding for the Wright State main campus, built in Godot. Designed the UI and
+            the alphabet-trie data structure holding room location nodes, plus the informational node
+            system that surfaces room and building details on click.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-year">2025</div>
+        <div>
+          <h3>Floor Plan OCR Pipeline</h3>
+          <p class="entry-meta">Intro to Software Engineering</p>
+          <p>Python pipeline converting PDF floor plans to images with Poppler, then extracting room
+            numbers and their coordinates with Tesseract. Output fed the campus mapping project&rsquo;s node graph.</p>
+        </div>
+      </div>
+    </section>
     <!--Writing-->
     <section id="writing">
       <h2>Writing</h2>
@@ -307,18 +313,8 @@
         Reach me at <a href="mailto:cox.366@wright.edu">cox.366@wright.edu</a>.
       </p>
     </section>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-  </main>
+    </main>
+  </div>
 
   <footer>
     <div class="shell footer-inner">
